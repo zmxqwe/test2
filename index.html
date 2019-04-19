@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>网站首页</title>
+	<link rel="stylesheet" href="css/index.css">
+<style>
+#two,#three,#four,#five{
+	display: none;
+}
+
+</style>
+<script>
+window.onload = function(){
+	var items = document.getElementsByClassName("item");
+        	var points = document.getElementsByClassName("point");
+
+        	var goPreBtn = document.getElementById("goPre");
+        	var goNextBtn = document.getElementById("goNext");
+        	var time = 0;
+        	var index = 0;
+
+        	var clearActive = function(){
+        		for (var i = 0; i < items.length; i++) {
+        			items[i].className = "item"
+        		}
+        		for (var i = 0; i < items.length; i++) {
+        			points[i].className = "point"
+        		}
+        	}
+
+        	var goIndex = function(){
+        		clearActive();
+        		console.log(index)
+        		points[index].className = "point active";
+        		items[index].className = "item active";
+        	}
+
+        	var goNext = function(){
+        		if(index < 5){
+        			index++;
+        		}else{
+        			index = 0;
+        		}
+        		goIndex();
+        	}
+        	var goPre = function(){
+        		if(index == 0){
+        			index = 5;
+        		}else{
+        			index--;
+        		}
+        		goIndex();
+        	}
+
+        	
+
+        	for (var i = 0; i < points.length; i++) {
+        		points[i].addEventListener("click",function(){
+        			var pointIndex = this.getAttribute("date-index");
+        			index = pointIndex;
+        			goIndex();
+        			time = 0;
+        		})
+        	}
+        	setInterval(function(){
+        		time++;
+        		if(time == 20){
+        			goNext(); 
+        			time = 0;
+        		}
+        	},180)
+
+	function $(id){return document.getElementById(id)};
+	var lis = document.getElementById("tab-title").getElementsByTagName('li');
+	var uls = document.getElementById("nc").getElementsByTagName("ul");
+	
+	for(i=0;i<lis.length;i++){
+		lis[i].index = i;
+		lis[i].onmouseover = function(){
+			for(j=0;j<uls.length;j++){
+				uls[j].style.display = "none";
+			}
+			uls[this.index].style.display = "block";
+		}
+	}
+	
+
+}
+
+	
+
+
+</script>
+
+</head>
+<body>
+	<div class="header">
+		<div class="top">
+			<div class="logo">
+				<img src="img/logo.jpg" alt="">
+			</div>
+			<div class="txt">
+				<div class="txt_tel">
+					<span>
+						<img src="img/tel_biao.jpg" alt="">
+					</span>
+					<p>加盟热线：400-672-8890</p>
+				</div>
+				<ul>
+					<li><a href="index.html">网站首页</a></li>
+					<li><a href="guanyu.html">关于甘茶度</a></li>
+					<li>
+						<a href="xiaji.html">产品菜单</a>
+						<ol>
+							<li><a href="dongji.html">冬季产品</a></li>
+							<li><a href="xiaji.html">夏季产品</a></li>
+						</ol>
+					</li>
+					<li><a href="dpzs.html">店铺展示</a></li>
+					<li><a href="news.html">新闻中心</a></li>
+					<li><a href="jmhz.html">加盟合作</a></li>
+					<li><a href="xieshou.html">携手甘茶度</a></li>
+				</ul>
+			</div>
+		</div>
+		
+	</div>
+	 <div class="banner">
+			
+			<ul class="list">
+				<li class="item active">
+					<img src="img/3.jpg" alt="">
+				</li>
+				<li class="item">
+					<img src="img/2.jpg" alt="">
+				</li>
+				<li class="item">
+					<img src="img/1.jpg" alt="">
+				</li>
+				<li class="item">
+					<img src="img/4.jpg" alt="">
+				</li>
+				<li class="item">
+					<img src="img/5.jpg" alt="">
+				</li>
+				<li class="item">
+					<img src="img/6.jpg" alt="">
+				</li>
+			</ul>
+			<ul class="pointList">
+				<li class="point active" date-index="0"></li>
+				<li class="point" date-index="1"></li>
+				<li class="point" date-index="2"></li>
+				<li class="point" date-index="3"></li>
+				<li class="point" date-index="4"></li>
+				<li class="point" date-index="5"></li>
+			</ul>
+			
+        </div>
+	<div class="index_about">
+		<div class="index_about_con">
+			<div class="index_about_txt">
+				<span></span>
+				<p>让“产品回归到食材本身”</p>
+				<dt>提供微高端茶饮创意店服务</dt>
+				<div>精致之选</div>
+			</div>
+			<div class="index_about_video">
+				<embed src="http://player.youku.com/embed/XMzUyMjk4NjAxMg==" type="" width="640px" height="360px">
+
+			</div>
+		</div>
+	</div>
+	<div class="index_pro">
+		<div class="index_pro_con">
+			<div class="index_pro_tit">
+				<p><img src="img/pro_tit.jpg" alt=""></p>
+				<ul id="tab-title">
+					<li >
+                        <a href = "#">品芝士</a>
+					</li>
+					<li>
+						 <a href = "#">品布蕾</a>
+					</li>
+					<li>
+						 <a href = "#">品鲜果</a>
+
+					</li>
+					<li>
+						 <a href = "#">冰淇淋</a>
+					</li>
+					<li>
+						 <a href = "#">品奶盖</a>
+					</li>
+
+				</ul>
+			</div>
+			<div class="index_pro_list" id = "nc">
+				<ul id = "one">
+					<li>
+						<span>
+							<a href="#">
+								<img src="img/20190220092421861.jpg" alt="">
+							</a>
+						</span>
+						<p>
+							<a href="#">芝士奶盖绿</a>
+						</p>
+						<div>
+							<a href="#">MORE+</a>
+						</div>
+					</li>
+					<li>
+						<span>
+							<a href="#">
+								<img src="img/20190220092446413.jpg" alt="">
+							</a>
+						</span>
+						<p>
+							<a href="#">低脂芝士奶盖乌龙</a>
+						</p>
+						<div>
+							<a href="#">MORE+</a>
+						</div>
+					</li>
+					<li>
+						<span>
+							<a href="#">
+								<img src="img/20190220092614819.jpg" alt="">
+							</a>
+						</span>
+						<p>
+							<a href="#">芝士奶盖红</a>
+						</p>
+						<div>
+							<a href="#">MORE+</a>
+						</div>
+					</li>
+					<li>
+						<span>
+							<a href="#">
+								<img src="img/20190220093930920.jpg" alt="">
+							</a>
+						</span>
+						<p>
+							<a href="#">芝士黑糖（2018新品）</a>
+						</p>
+						<div>
+							<a href="#">MORE+</a>
+						</div>
+					</li>
+				</ul>
+				<ul id = "two">
+					<li>
+						<span>
+							<a href="#">
+								<img src="img/20190220092655463.jpg" alt="">
+							</a>
+						</span>
+						<p>
+							<a href="#">黑糖奶茶</a>
+						</p>
+						<div>
+							<a href="#">MORE+</a>
+						</div>
+					</li>
+					<li>
+						<span>
+							<a href="#">
+								<img src="img/20190220092807378.jpg" alt="">
+							</a>
+						</span>
+						<p>
+							<a href="#">布蕾奥利奥</a>
+						</p>
+						<div>
+							<a href="#">MORE+</a>
+						</div>
+					</li>
+					<li>
+						<span>
+							<a href="#">
+								<img src="img/20190219125617779.jpg" alt="" class="on">
+							</a>
+						</span>
+						<p>
+							<a href="#">布丁奶茶</a>
+						</p>
+						<div>
+							<a href="#">MORE+</a>
+						</div>
+					</li>
+					<li>
+						<span>
+							<a href="#">
+								<img src="img/20181031090747786.jpg" alt="">
+							</a>
+						</span>
+						<p>
+							<a href="#">黑布布雷（2018新品）</a>
+						</p>
+						<div>
+							<a href="#">MORE+</a>
+						</div>
+					</li>
+				</ul>
+				<ul id = "three">
+					<li>
+						<span>
+							<a href="#">
+								<img src="img/20190301082035266.jpg" alt="">
+							</a>
+						</span>
+						<p>
+							<a href="#">芝士莓莓（2019新）</a>
+						</p>
+						<div>
+							<a href="#">MORE+</a>
+						</div>
+					</li>
+					<li>
+						<span>
+							<a href="#">
+								<img src="img/20190301082053727.jpg" alt="">
+							</a>
+						</span>
+						<p>
+							<a href="#">红莓落雪（2019新品）</a>
+						</p>
+						<div>
+							<a href="#">MORE+</a>
+						</div>
+					</li>
+					<li>
+						<span>
+							<a href="#">
+								<img src="img/20190301082110705.jpg" alt="" class="on">
+							</a>
+						</span>
+						<p>
+							<a href="#">草莓酸奶西米露2019新品</a>
+						</p>
+						<div>
+							<a href="#">MORE+</a>
+						</div>
+					</li>
+					<li>
+						<span>
+							<a href="#">
+								<img src="img/20190301082128485.jpg" alt="">
+							</a>
+						</span>
+						<p>
+							<a href="#">白雪莓莓（2019新品）</a>
+						</p>
+						<div>
+							<a href="#">MORE+</a>
+						</div>
+					</li>
+				</ul>
+				<ul id = "four">
+					<li>
+						<span>
+							<a href="#">
+								<img src="img/20190220093138412.jpg" alt="">
+							</a>
+						</span>
+						<p>
+							<a href="#">巧克力沙冰</a>
+						</p>
+						<div>
+							<a href="#">MORE+</a>
+						</div>
+					</li>
+					<li>
+						<span>
+							<a href="#">
+								<img src="img/20190220093156232.jpg" alt="">
+							</a>
+						</span>
+						<p>
+							<a href="#">铁观音沙冰</a>
+						</p>
+						<div>
+							<a href="#">MORE+</a>
+						</div>
+					</li>
+					<li>
+						<span>
+							<a href="#">
+								<img src="img/20180625095102357.jpg" alt="" class="on">
+							</a>
+						</span>
+						<p>
+							<a href="#">巧克力思慕雪（2018新品）</a>
+						</p>
+						<div>
+							<a href="#">MORE+</a>
+						</div>
+					</li>
+					<li>
+						<span>
+							<a href="#">
+								<img src="img/20180615092301131.jpg" alt="">
+							</a>
+						</span>
+						<p>
+							<a href="#">布蕾冰淇淋（2018新品））</a>
+						</p>
+						<div>
+							<a href="#">MORE+</a>
+						</div>
+					</li>
+				</ul>
+				<ul id = "five">
+					<li>
+						<span>
+							<a href="#">
+								<img src="img/20190220093315132.jpg" alt="">
+							</a>
+						</span>
+						<p>
+							<a href="#">乌龙拿铁</a>
+						</p>
+						<div>
+							<a href="#">MORE+</a>
+						</div>
+					</li>
+					<li>
+						<span>
+							<a href="#">
+								<img src="img/20190220093252468 (1).jpg" alt="">
+							</a>
+						</span>
+						<p>
+							<a href="#">可可拿铁</a>
+						</p>
+						<div>
+							<a href="#">MORE+</a>
+						</div>
+					</li>
+					<li>
+						<span>
+							<a href="#">
+								<img src="img/20181031090944105.jpg" alt="" class="on">
+							</a>
+						</span>
+						<p>
+							<a href="#">岩韵奶茶（2018新品）</a>
+						</p>
+						<div>
+							<a href="#">MORE+</a>
+						</div>
+					</li>
+					<li>
+						<span>
+							<a href="#">
+								<img src="img/20180615111338285.jpg" alt="">
+							</a>
+						</span>
+						<p>
+							<a href="#">拿铁系列新品</a>
+						</p>
+						<div>
+							<a href="#">MORE+</a>
+						</div>
+					</li>
+				</ul>
+
+			</div>
+		</div>
+
+	</div>
+	<div class="index_store">
+		<div class="index_store_con">
+			<div class="index_store_tit">
+				<img src="img/store_tit.png" alt="">
+			</div>
+			<ul>
+				<li>
+					<span>
+						<a href="#">
+							<img src="img/store1.jpg" alt="">
+						</a>
+					</span>
+					<p>10平方米装修效果图</p>
+				</li>
+				<li>
+					<span>
+						<a href="#">
+							<img src="img/store2.jpg" alt="">
+						</a>
+					</span>
+					<p>20平方米装修效果图</p>
+				</li>
+				<li>
+					<span>
+						<a href="#">
+							<img src="img/store3.jpg" alt="">
+						</a>
+					</span>
+					<p>30平方米装修效果图</p>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="index_zhic">
+		<div class="index_zhic_tit">
+			<img src="img/zhic_tit.png" alt="">
+		</div>
+		<div class="index_zhic_txt">
+			<span>开店前</span>
+			<ul>
+				<li>
+                    <div>01</div>
+                    <p>免费培训授课</p>
+				</li>
+				<li>
+					<div>02</div>
+                    <p>统一VIS设计</p>
+
+				</li>
+				<li>
+					<div>03</div>
+                    <p>选址数据分析</p>
+				</li>
+			</ul>
+		</div>
+		<div class="index_zhic_empty"></div>
+		<div class="index_zhic_txt">
+			<span>开张时</span>
+			<ul>
+				<li>
+                    <div>01</div>
+                    <p>产品研发支持</p>
+				</li>
+				<li>
+					<div>02</div>
+                    <p>物料供应支持</p>
+
+				</li>
+				<li>
+					<div>03</div>
+                    <p>物流配送支持</p>
+				</li>
+			</ul>
+		</div>
+		<div class="index_zhic_empty"></div>
+		<div class="index_zhic_txt">
+			<span>经营时</span>
+			<ul>
+				<li>
+                    <div>01</div>
+                    <p>全年营销方案提供</p>
+				</li>
+				<li>
+					<div>02</div>
+                    <p>总部全网助力推广</p>
+
+				</li>
+				<li>
+					<div>03</div>
+                    <p>点对点门店售后服务</p>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="index_activity">
+		<div class="index_activity_con">
+			<div class="index_activity_tit">
+				<img src="img/activity.png" alt="">
+			</div>
+			<ul>
+				<li>
+                    <div class="newspic">
+						<a href="#">
+							<img src="img/20190301082420759.jpg" alt="">
+						</a>
+                    </div>
+                    <div class="newstxt">
+						<p>
+							<a href="#">青岛加盟奶茶店需要多少钱,奶茶加盟费包括什么</a>
+						</p>
+						<span>2019/03/01</span>
+                    </div>
+				</li>
+				<li>
+					<div class="newstxt">
+						<p>
+							<a href="#">深圳奶茶加盟,奶茶店一天有多少利润</a>
+						</p>
+						<span>2019/02/26</span>
+                    </div>
+                    <div class="newspic">
+						<a href="#">
+							<img src="img/20190226010515888.jpg" alt="">
+						</a>
+                    </div>
+
+				</li>
+				<li>
+					 <div class="newspic">
+						<a href="#">
+							<img src="img/20190126125908502.jpg" alt="">
+						</a>
+                    </div>
+                    <div class="newstxt">
+						<p>
+							<a href="#">2019奶茶创业,5千现金等你拿</a>
+						</p>
+						<span>2019/01/26</span>
+                    </div>
+
+				</li>
+				<li>
+					 <div class="newspic">
+						<a href="#">
+							<img src="img/20190118093428441.jpg" alt="">
+						</a>
+                    </div>
+                    <div class="newstxt">
+						<p>
+							<a href="#">为什么奶茶店开不好</a>
+						</p>
+						<span>2019/01/18</span>
+                    </div>
+
+				</li>
+			</ul>
+			<div class="index_activity_more">
+				<a href="#">更多+</a>
+			</div>
+		</div>
+
+	</div>
+	<div class="index_news">
+		<div class="index_news_tit">
+			<img src="img/news_tit.png" alt="">
+		</div>
+		<div class="index_news_con">
+			<div class="index_news1">
+				<ul>
+					<li>
+						<div class="newstimes">
+							<p>03/05</p>
+							<span>2019</span>
+						</div>
+						<div class="indexnewstxt">
+							<p>
+								<a href="#">现在加盟奶茶店,需要多少钱</a>
+							</p>
+							<span>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在吃喝住行方面都非常的讲究，所以投资奶茶店加盟行业也越来越注重产品的品质。现在加盟奶茶店需要多少钱？作为国内奶茶饮品行业知名奶?</span>
+						</div>
+					</li>
+					<li>
+						<div class="newstimes">
+							<p>03/01</p>
+							<span>2019</span>
+						</div>
+						<div class="indexnewstxt">
+							<p>
+								<a href="#">加盟一个奶茶店得多少钱</a>
+							</p>
+							<span>  盟一家奶茶店得多少钱,甘茶度奶茶无论档口还是商业街都可经营,品牌加盟费用5 98万元，开店全扶持，一站式加盟指导，让您新手开店无忧。</span>
+						</div>
+
+					</li>
+					<li>
+						<div class="newstimes">
+							<p>02/28</p>
+							<span>2019</span>
+						</div>
+						<div class="indexnewstxt">
+							<p>
+								<a href="#">开个奶茶店要多少钱</a>
+							</p>
+							<span>  开奶茶店多少钱费用多少，广州 上海 深圳开奶茶店怎么开奶茶店,甘茶度为您详细介绍奶茶店开在哪些位置、城市、大小有着非常关键的因素，那么，为您详细介绍，开个奶茶店多少钱因素参考</span>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="index_news_pic">
+				<a href="#">
+					<img src="img/20181124031703492.jpg" alt="">
+				</a>
+			</div>
+			<div class="index_news2">
+				<ul>
+					<li>
+                       	<a href="#">广州加盟店奶茶店,需要多少钱</a>
+					</li>
+					<li>
+						<a href="#">杭州奶茶加盟店需要多少钱</a>
+					</li>
+					<li>
+						<a href="#">如何开好奶茶连锁店,甘茶度为您支招</a>
+					</li>
+					<li>
+						<a href="#">一个奶茶店需要多少钱</a>
+					</li>
+					<li>
+						<a href="#">奶茶店好开吗,怎么经营？</a>
+
+					</li>
+					<li>
+						<a href="#">杭州开奶茶店.杭州开奶茶店要多少钱</a>
+					</li>
+					<li>
+						<a href="#">湖南常长沙奶茶店加盟，费用、多少钱</a>
+					</li>
+					<li>
+						<a href="#">学校附近开个奶茶店</a>
+					</li>
+					<li>
+						<a href="#">开家小型奶茶店需要多少钱</a>
+					</li>
+
+				</ul>
+
+			</div>
+			<div class="index_news3">
+				<ul>
+					<li>
+						<a href="#">湖南奶茶加盟,长沙奶茶加盟容易吗</a>
+					</li>
+					<li>
+						<a href="#">想开奶茶店没有经验怎么办</a>
+
+					</li>
+					<li>
+						<a href="#">没有经验怎么开奶茶店</a>
+
+					</li>
+					<li>
+						<a href="#">怎么开奶茶店的步骤</a>
+					</li>
+					<li>
+						<a href="#">开奶茶店亏了,加盟奶茶店注意了</a>
+					</li>
+					<li>
+						<a href="#">河南连锁奶茶店排行榜之甘茶度河南鹤壁奶茶店</a>
+					</li>
+					<li>
+						<a href="#">杭州奶茶店,奶茶店加盟费高吗</a>
+					</li>
+					<li>
+						<a href="#">开奶茶店需要多少钱</a>
+					</li>
+					<li>
+						<a href="#">河南鹤壁甘茶度奶茶店,看的老板每天美滋滋</a>
+					</li>
+
+				</ul>
+
+			</div>
+		</div>
+
+	</div>
+	<div class="foot">
+		<div class="foot_con">
+			<div class="foot_logo">
+				<a href=""><img src="img/logo.jpg" alt=""></a>
+			</div>
+			<div class="foot_txt">
+				<p>
+					<a href="">缤纷活动</a>
+					<a href="">甘茶度新闻</a>
+					<a href="">夏季产品</a>
+					<a href="">专题活动</a>
+					<a href="">加盟捷报</a>
+					<a href="">关于甘茶度</a>
+					<a href="">门店展示</a>
+				</p>
+				<span>
+					Copyright 2013-2025 All rights reserved 杭州奇异鸟饮品科技连锁有限公司
+					<br>
+					www.ganchadu.com　杭州甘茶度备案：浙ICP备13027684号-13
+					<br>
+					 24小时奶茶加盟热线：400-672-8890 邮编：310000 
+					 <br>
+					  地址：杭州市余杭区姚家路5号蓝都创意园6号楼
+				</span>
+			</div>
+			<div class="foot_erweima">
+				<span>
+					<img src="img/weibo.png" alt="">
+					<a href="">新浪微博</a>
+				</span>
+				<span>
+					<img src="img/weixin.png" alt="">
+					<a href="">微信公众号</a>
+				</span>
+			</div>
+		</div>
+	</div>
+	<div class="links">
+		<p>友情链接：</p>
+		<ul>
+			<li><a href="">零食店加盟</a></li>
+			<li><a href="">咖啡网</a></li>
+			<li><a href="">袁记肉夹馍加盟</a></li>
+			<li><a href="">春季糖酒会</a></li>
+			<li><a href="">创业好项目</a></li>
+			<li><a href="">奶茶店加盟</a></li>
+			<li><a href="">餐饮连锁店加盟</a></li>
+			<li><a href=""> 四川特产苦荞茶</a></li>
+			<li><a href="">红酒代理</a></li>
+			<li><a href="">西餐加盟</a></li>
+			<li><a href="">饮料招商代理</a></li>
+		</ul>
+	</div>
+</body>
+</html>
